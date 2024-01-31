@@ -37,7 +37,7 @@ class PodCastsTests(TestCase):
 
     def test_homepage_uses_correct_template(self):
         response = self.client.get(reverse('homepage'))
-        self.assertTemplateUsed(response, 'base.html')
+        self.assertTemplateUsed(response, 'homepagehomepage.html')
 
     def test_homepage_list_contents(self):
         response = self.client.get(reverse('homepage'))

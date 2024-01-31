@@ -5,7 +5,7 @@ from django.views.generic import ListView
 
 class HomeView(ListView):
     model = Episode
-    template_name = 'base.html'
+    template_name = 'homepage.html'
 
     def get_context_data(self, **kwargs):
         """Here we override the context data to show only 10 most recent podcasts"""
