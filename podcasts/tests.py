@@ -3,6 +3,7 @@ from django.utils import timezone
 from .models import Episode
 from django.urls.base import reverse
 
+
 # Creating some simple tests
 class PodCastsTests(TestCase):
     def setUp(self):
@@ -36,9 +37,9 @@ class PodCastsTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_homepage_uses_correct_template(self):
-        response = self.client.get(reverse('homepage'))
-        self.assertTemplateUsed(response, 'homepage.html')
+        response = self.client.get(reverse('pycasts'))
+        self.assertTemplateUsed(response, 'pycasts.html')
 
     def test_homepage_list_contents(self):
-        response = self.client.get(reverse('homepage'))
+        response = self.client.get(reverse('pycasts'))
         self.assertContains(response, 'My Podcast Episode')
