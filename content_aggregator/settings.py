@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # my apps
     'podcasts.apps.PodcastsConfig',
+    'home',
 
     # third party apps
     "django_apscheduler",
