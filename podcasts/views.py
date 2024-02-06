@@ -14,3 +14,4 @@ class PodcastView(LoginRequiredMixin, ListView):
         context['episodes'] = Episode.objects.filter().order_by("-pub_date")[:10]
         return context
 
+

@@ -32,14 +32,14 @@ class PodCastsTests(TestCase):
             str(self.episode), "My Python Podcast: My Podcast Episode"
         )
 
-    def test_homepage_page_status_code(self):
+    def test_pycasts_page_status_code(self):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
 
-    def test_homepage_uses_correct_template(self):
+    def test_pycasts_uses_correct_template(self):
         response = self.client.get(reverse('pycasts'))
         self.assertTemplateUsed(response, 'pycasts.html')
 
-    def test_homepage_list_contents(self):
+    def test_pycasts_list_contents(self):
         response = self.client.get(reverse('pycasts'))
         self.assertContains(response, 'My Podcast Episode')
