@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     # third party apps
     'django_apscheduler',
     'crispy_forms',
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -167,4 +168,6 @@ LOGGING = {
 
 LOGIN_REDIRECT_URL = 'pycasts'
 
-CRISPY_TEMPLATE_PACK = 'uni_form'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
