@@ -62,6 +62,7 @@ def delete_old_jobs_executions(max_age=604_800):
 class Command(BaseCommand):
     help = 'Runs Apscheduler'
 
+    # Handling our jobs
     def handle(self, *args, **options):
         scheduler = BlockingScheduler(timezone=settings.TIME_ZONE)
         scheduler.add_jobstore(DjangoJobStore(), "default")

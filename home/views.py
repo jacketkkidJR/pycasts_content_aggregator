@@ -8,8 +8,10 @@ from datetime import datetime
 from custom_user.models import User
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
+# Creating a view for password reset
 class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
     template_name = 'password_reset.html'
     email_template_name = 'password_reset_email.html'
@@ -21,17 +23,20 @@ class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
     success_url = 'password-reset-sent'
 
 
+# Overriding standard UserCreationForm to ask not for username but for email instead
 class UserCreation(UserCreationForm):
     class Meta:
         model = User
         fields = ("email",)
 
 
+# Creating a view for the homepage
 class HomeView(TemplateView):
     template_name = 'homepage.html'
     extra_context = {'today': datetime.today()}
 
 
+# Creating a view for creating a new account
 class SignupView(CreateView):
     form_class = UserCreation
     template_name = 'register.html'
@@ -43,10 +48,12 @@ class SignupView(CreateView):
         return super().get(request, *args, **kwargs)
 
 
-class LogoutInterfaceView(LogoutView):
+# # Creating a view for the logout page
+class LogoutInterfaceView(LogoutView, LoginRequiredMixin):
     template_name = 'logout.html'
 
 
+# Creating a view for the login page
 class LoginInterfaceView(LoginView):
     template_name = 'login.html'
 

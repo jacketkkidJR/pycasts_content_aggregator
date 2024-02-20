@@ -4,6 +4,7 @@ from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
+# Creating a Podcast View
 class PodcastView(LoginRequiredMixin, ListView):
     model = Episode
     template_name = 'pycasts.html'

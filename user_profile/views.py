@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserUpdateForm, ProfileUpdateForm
 
 
-# Update it here
+# Crating forms representation and saving
 @login_required
 def profile(request):
     if request.method == 'POST':

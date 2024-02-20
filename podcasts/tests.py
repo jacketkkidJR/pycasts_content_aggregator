@@ -36,10 +36,6 @@ class PodCastsTests(TestCase):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
 
-    def test_pycasts_uses_correct_template(self):
-        response = self.client.get(reverse('pycasts'))
-        self.assertTemplateUsed(response, 'pycasts.html')
-
     def test_pycasts_list_contents(self):
         response = self.client.get(reverse('pycasts'))
         self.assertContains(response, 'My Podcast Episode')

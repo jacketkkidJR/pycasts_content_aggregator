@@ -149,6 +149,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
+# Media root config to save users' files they provide (in this app it corresponds to avatar images)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
@@ -173,13 +174,15 @@ LOGGING = {
     },
 }
 
+# Default redirect link after logging in
 LOGIN_REDIRECT_URL = 'pycasts'
 
+# Crispy forms config
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-# email configs
+# Email configs
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
